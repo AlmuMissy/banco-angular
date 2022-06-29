@@ -1,1 +1,76 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+
+  
+  .main-header {
+    background-color: #2ddf5c; 
+    padding: 0.5rem 1rem; 
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .main-header > div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .main-header__brand {
+    color: #0e4f1f;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.37rem;
+  }
+  
+  .main-login__title {
+    text-align: center;
+    color: #ff5454;
+    padding-top: 1.25rem;
+  }
+  
+  .main-main {
+    padding-top: 3.75rem;
+  }
+  
+
+  .main-footer {
+    position: fixed;
+    background-color: black;
+    padding: 0.31rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .main-footer__enlaces {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .main_footer__enlace {
+    display: inline-block;
+    margin: 0 1rem
+  }
+  
+  .main_footer__enlace a {
+    color: white;
+    font-size: 0.75rem;
+    text-decoration: none;
+  }
+  
+  .main_footer__enlace a:hover {
+    color: red;
+    font-size: 0.75rem;
+    text-decoration: none;
+  }
+  

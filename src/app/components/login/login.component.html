@@ -1,0 +1,22 @@
+<main class="main-main">
+
+  <h1 class="main-login__title">Iniciar sesión Gestor</h1>
+
+  <div class="login-form">
+
+    <label for="usuario">Usuario</label>
+    <input #usuarioInput type="text" name="usuario" id="usuario">
+
+    <label for="password">Password</label>
+    <input #passwordInput type="text" name="password" id="password">
+
+    <button
+      class="login-button"
+      (click)="loginGestor(usuarioInput, passwordInput)"
+    >
+      Entrar
+    </button>
+
+  </div>
+
+</main>
