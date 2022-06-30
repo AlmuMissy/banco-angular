@@ -1,6 +1,6 @@
 <main class="main-main">
 
-  <h1 class="main-login__title">Iniciar sesión Gestor</h1>
+  <h1 class="main-login__title">Iniciar sesión Cliente</h1>
 
   <div class="login-form">
 
@@ -9,7 +9,7 @@
 
     <label for="password">Password</label>
     <input
-      (keyup)="loginGestorEnter($event, usuarioInput, passwordInput)"
+      (keyup)="loginClienteEnter($event, usuarioInput, passwordInput)"
       #passwordInput
       type="password"
       name="password"
@@ -17,7 +17,7 @@
 
     <button
       class="login-button"
-      (click)="loginGestor(usuarioInput, passwordInput)">
+      (click)="loginCliente(usuarioInput, passwordInput)">
       Entrar
     </button>
 

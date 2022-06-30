@@ -1,34 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { BancoService } from '../../services/banco.service';
-import { Router } from '@angular/router';
-
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-login-cliente',
+  templateUrl: './login-cliente.component.html',
+  styleUrls: ['./login-cliente.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginClienteComponent implements OnInit {
 
   estaAutenticado: boolean = false;
 
-  constructor(
-    private bancoService: BancoService,
-    private router: Router,  // este objeto nos permite realizar redirecciones
-   
-  ) { }
+  constructor(private bancoService: BancoService) { }
 
   ngOnInit(): void {
   }
 
-  async loginGestor(
+  async loginCliente(
     usuarioInput: HTMLInputElement,
     passwordInput: HTMLInputElement) {
 
     const usuario = usuarioInput.value;
     const password = passwordInput.value;
 
-    const ok = await this.bancoService.loginGestor(
+    const ok = await this.bancoService.loginCliente(
       usuario, password);
 
     // si ok es true, entonces la autenticación ha sido correcta y no se muestra la caja de texto del mensaje (this.estaAutenticado = false)
@@ -45,13 +39,21 @@ export class LoginComponent implements OnInit {
       passwordInput.value = '';
     }
 
-    // si la autenticación es correcta, entonces redireccionamos a lar ruta /chat
-    else {
-      this.router.navigate(['chat']);
-    }
+    // si ok es true, entonces la autenticación ha sido correcta
+    // if (ok) {
+    //   alert('Autenticación correcta');
+    // } else {
+    //   alert('Autenticación incorrecta');
+    // }
+
+    // const msg = (ok) ?
+    //   'Autenticación correcta' : 'Autenticación incorrecta';
+
+    // alert(msg);
   }
 
-  loginGestorEnter(
+
+  loginClienteEnter(
     event: KeyboardEvent,
     usuarioInput: HTMLInputElement,
     passwordInput: HTMLInputElement
@@ -59,8 +61,11 @@ export class LoginComponent implements OnInit {
 
     // el usuario ha pulsado Enter en la caja de texto del password. Ahora ejecutamos el mismo código del método loginGestor
     if(event.key === 'Enter') {
-      this.loginGestor(usuarioInput, passwordInput);
+      this.loginCliente(usuarioInput, passwordInput);
     }
   }
 
 }
+
+
+

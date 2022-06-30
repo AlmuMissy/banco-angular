@@ -1,0 +1,35 @@
+.main-aside {
+  position: fixed;
+  border :#0e4f1f solid 2px;
+  width: 15em;
+  bottom: 0;
+  right: 0;
+  height: 60%;
+}
+
+.main-aside__title {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #0e4f1f;
+  color: white;
+  font-weight: bold;
+}
+
+.main-aside__mensajes {
+  padding: 10px;
+  font-size: 18px;
+  height: 80%;
+  overflow: auto;
+}
+
+.main-aside__submit {
+  position: absolute;
+  bottom: 1%;
+  right: 2%;
+}
+
+.main-aside__borrar {
+  cursor: pointer;
+  font-size: 25px;
+}
