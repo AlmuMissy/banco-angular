@@ -52,20 +52,15 @@ export class LoginClienteComponent implements OnInit {
     // alert(msg);
   }
 
-
   loginClienteEnter(
     event: KeyboardEvent,
     usuarioInput: HTMLInputElement,
     passwordInput: HTMLInputElement
   ) {
 
-    // el usuario ha pulsado Enter en la caja de texto del password. Ahora ejecutamos el mismo código del método loginGestor
+    // el usuario ha pulsado Enter en la caja de texto del password. Ahora ejecutamos el mismo código del método loginCliente
     if(event.key === 'Enter') {
       this.loginCliente(usuarioInput, passwordInput);
     }
   }
-
 }
-
-
-

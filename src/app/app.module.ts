@@ -8,6 +8,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ChatComponent } from './components/chat/chat.component';
 import { LoginClienteComponent } from './components/login-cliente/login-cliente.component';
+import { NoEncontradoComponent } from './components/no-encontrado/no-encontrado.component';
+import { GestoresComponent } from './components/gestores/gestores.component';
+import { MensajesComponent } from './components/mensajes/mensajes.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { LoginClienteComponent } from './components/login-cliente/login-cliente.
     LoginComponent,
     FooterComponent,
     ChatComponent,
-    LoginClienteComponent
+    LoginClienteComponent,
+    NoEncontradoComponent,
+    GestoresComponent,
+    MensajesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
 import { MensajeChat } from '../../modelos/mensaje-chat';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -11,9 +13,18 @@ export class ChatComponent implements OnInit {
 
   mensajes: MensajeChat[] = [];
 
-  constructor(private chatService: ChatService) { }
+  constructor(
+    private chatService: ChatService,
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+
+    // comprueba que el gestor esté autenticado. Si NO lo está, redirigir a /login/gestor
+    if(!this.authService.estaAutenticadoGestor()) {
+      this.router.navigate(['login', 'gestor']);
+    }
 
     this.chatService.escucharMensajes((mensaje: MensajeChat) => {
 
@@ -43,7 +54,7 @@ export class ChatComponent implements OnInit {
     }
 
     const mensajeChat: MensajeChat = {
-      usuario: 'almudena',
+      usuario: 'alejandro',
       mensaje,
     }
 
@@ -54,13 +65,12 @@ export class ChatComponent implements OnInit {
 
   onEnviarMensajeEnter(
     event: KeyboardEvent,
-    usuarioInput: HTMLInputElement,
-    
+    mensajeInput: HTMLInputElement
   ) {
 
     // el usuario ha pulsado Enter en la caja de texto del password. Ahora ejecutamos el mismo código del método loginGestor
     if(event.key === 'Enter') {
-      this.onMensaje(usuarioInput,);
+      this.onMensaje(mensajeInput);
     }
   }
 

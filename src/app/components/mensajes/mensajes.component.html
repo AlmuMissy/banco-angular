@@ -1,0 +1,57 @@
+<main class="mensajes-main">
+
+  <article class="mensajes mensajes-article">
+    <h3>Mensajes</h3>
+
+    <div *ngIf="mensajesRecibidos.length === 0">
+      No hay mensajes recibidos
+    </div>
+
+    <div
+    *ngFor="let mensaje of mensajesRecibidos"
+    class="mensajes-mensaje">
+
+      <b>MENSAJE
+        <span class="mensajes-mensaje__borrar">👎</span>
+      </b>
+      <br><br>
+      <b>Usuario origen</b>: {{mensaje.usuario}}
+      <br><br>
+      <b>Fecha</b>: {{mensaje.fecha}}
+      <br><br>
+      <b>Texto:</b> {{mensaje.texto}}
+      <br>
+      <hr>
+    </div>
+
+  </article>
+
+  <article class="enviar-mensaje mensajes-article">
+    <h3>Enviar mensaje</h3>
+
+    <div>
+
+      <div class="mensaje-form__campo">
+        <label class="mensajes-form__label" for="usuario">Gestor</label>
+        <select #gestorDestinoSelect type="text" name="usuario" id="usuario">
+          <option
+            *ngFor="let gestor of gestores" value="{{gestor.id}}">
+            {{gestor.usuario}}
+          </option>
+        </select>
+      </div>
+
+      <div class="mensajes-form__campo">
+        <label class="mensajes-form__label" for="password">Mensaje</label>
+        <textarea #mensajeTextarea type="password" name="password" id="password" rows="3" cols="30" placeholder="Escribe el mensaje aquí"></textarea>
+      </div>
+
+      <button
+        (click)="onEnviarMensaje(gestorDestinoSelect, mensajeTextarea)"
+        class="mensajes-form__submit">
+        Enviar
+      </button>
+    </div>
+
+  </article>
+</main>

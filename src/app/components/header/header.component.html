@@ -4,25 +4,55 @@
     <a class="main-header__brand" href="index.html">Banco</a>
   </div>
 
-  {{reloj}} ({{minutosRestantes}}) (36ºC - Seville) - (BTC=2000$)
+  <span class="main-header__info">
+    {{reloj}} ({{minutosRestantes}}) ({{temperatura}}ºC - {{ciudad}}) -
+    (BTC={{precioBitcoin}}$)
+  </span>
+
+  <span
+  *ngIf="estaGestorAutenticado || estaClienteAutenticado" 
+  class="main-header_usuario">  ({{obtenerUsuarioAutenticado()}})</span>
 
   <nav class="main-nav">
 
     <ul class="main-nav__items">
-      <li class="main-nav__item">
-        <a href="clientes.html">Clientes</a>
+
+      <!-- Clientes -->
+      <li *ngIf="estaGestorAutenticado" class="main-nav__item">
+        <a href="clientes.html">👀Clientes</a>
       </li>
-      <li class="main-nav__item">
-        <a href="gestores.html">Gestores</a>
+
+      <!-- Gestores -->
+      <li *ngIf="estaGestorAutenticado" class="main-nav__item">
+        <a routerLink="gestores">Gestores</a>
       </li>
-      <li class="main-nav__item">
-        <a class="main-nav__item_mensajes" href="mensajes.html">Mensajes</a>
+
+      <!-- Mensajes -->
+      <li *ngIf="estaGestorAutenticado" class="main-nav__item">
+        <a class="main-nav__item_mensajes" routerLink="mensajes">Mensajes</a>
       </li>
-      <li class="main-nav__item main-nav__item_logout">
-        <a href="logout.html">
+
+      <!-- Botón logout -->
+      <li *ngIf="estaGestorAutenticado || estaClienteAutenticado" class="main-nav__item main-nav__item_logout">
+        <a (click)="onLogout()">
           <i class="fas fa-sign-out-alt"></i>Logout
         </a>
       </li>
+
+      <!-- Login Gestor -->
+      <li *ngIf="!estaGestorAutenticado && !estaClienteAutenticado" class="main-nav__item">
+        <a
+          class="main-nav__item_login_gestor"
+          routerLink="login/gestor">Login Gestor</a>
+      </li>
+
+      <!-- Login Cliente -->
+      <li *ngIf="!estaGestorAutenticado && !estaClienteAutenticado" class="main-nav__item">
+        <a
+          class="main-nav__item_login_gestor"
+          routerLink="login/cliente">Login Cliente</a>
+      </li>
+
     </ul>
   </nav>
 
